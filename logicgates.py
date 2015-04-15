@@ -110,6 +110,7 @@ class Connector:
     return self.togate
 
 def main():
+  print "initiating test:"
   g1 = AndGate("G1")
   g2 = AndGate("G2")
   g3 = OrGate("G3")
