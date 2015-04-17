@@ -120,7 +120,5 @@ def main():
   c3 = Connector(g3,g4)
   print(g4.getOutput())
 
-
-
 main()
 
