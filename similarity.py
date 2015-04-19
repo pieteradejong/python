@@ -10,12 +10,19 @@ class SimilarityMeasures():
     return ( math.fabs(a[0] - b[0]) + math.fabs(a[1] - b[1]) ) 
 
 
-  #def minkowski(self, a, b):
-    #
+  def minkowski(self, a, b, p):
+    if p == 1:
+      return self.manhattan(a, b)
+    elif p == 2:
+      return self.euclidian(a, b)
+    else:
+      sum = (math.fabs(a[0]-b[0]))**p + (math.fabs(a[1]-b[1])**p)
+      return sum**(1/p)
 
 
-  #def cosine(self, a, b):
-    #
+  def cosine(self, a, b):
+    # dot prod
+    # 
 
 
 
@@ -32,6 +39,11 @@ class SimilarityMeasures():
     print "Manhattan distance:"
     print "Expect 16", self.manhattan((1,2), (10, -5))
     print "Expect 32", self.manhattan((10, 18), (2, -6))
+
+    print "minkowski distance:"
+    print "Expect ", self.minkowski((1,2), (10, -5), 1.5)
+    print "Expect ", self.minkowski((10, 18), (2, -6), 1.5)
+
 
 if __name__ == '__main__':
   SimilarityMeasures().main()
