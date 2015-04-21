@@ -22,9 +22,9 @@ class SimilarityMeasures():
 
   def cosine(self, a, b):
     # dot prod
-    # 
-
-
+    # A-norm
+    # B-norm
+    # return quotient
 
   #def jaccard(self, a, b):
     #
