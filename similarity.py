@@ -21,10 +21,10 @@ class SimilarityMeasures():
 
 
   def cosine(self, a, b):
-    # dot prod
-    # A-norm
-    # B-norm
-    # return quotient
+    dotprod = a[0] * b[0] + a[1] * b[1]
+    a_Magnitude = math.sqrt(a[0]**2 + a[1]**2)
+    b_Magnitude = math.sqrt(b[0]**2 + b[1]**2)
+    return dotprod ./ ( a_Magnitude * b_Magnitude )
 
   #def jaccard(self, a, b):
     #
@@ -43,6 +43,12 @@ class SimilarityMeasures():
     print "minkowski distance:"
     print "Expect ", self.minkowski((1,2), (10, -5), 1.5)
     print "Expect ", self.minkowski((10, 18), (2, -6), 1.5)
+
+    print "cosine distance:"
+    print "Expect ", self.cosine((1,2), (10, -5))
+    print "Expect ", self.cosine((10, 18), (2, -6))
+
+    print "Expect 0.5", 1/2
 
 
 if __name__ == '__main__':
