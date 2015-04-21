@@ -1,4 +1,5 @@
 import math
+import sys
 
 # assumes two points in R^2 (points in 2D-space)
 class SimilarityMeasures():
@@ -24,10 +25,16 @@ class SimilarityMeasures():
     dotprod = a[0] * b[0] + a[1] * b[1]
     a_Magnitude = math.sqrt(a[0]**2 + a[1]**2)
     b_Magnitude = math.sqrt(b[0]**2 + b[1]**2)
-    return dotprod ./ ( a_Magnitude * b_Magnitude )
+    res = float(dotprod) / (a_Magnitude * b_Magnitude)
+    return res
 
-  #def jaccard(self, a, b):
-    #
+  def jaccard(self, a, b):
+    a_set = set(a)
+    b_set = set(b)
+    size_of_intersection = len( a_set.intersection(b_set) )
+    size_of_union = len( a_set.union(b_set) )
+    return float(size_of_intersection) / size_of_union
+    
 
   def main(self):
     print "Testing distance metrics..."
@@ -48,7 +55,9 @@ class SimilarityMeasures():
     print "Expect ", self.cosine((1,2), (10, -5))
     print "Expect ", self.cosine((10, 18), (2, -6))
 
-    print "Expect 0.5", 1/2
+    print "jaccard distance:"
+    print "Expect .333", self.jaccard(['a', 'b', 'c'], ['a'])
+    #print "Expect ", self.cosine((10, 18), (2, -6))
 
 
 if __name__ == '__main__':
