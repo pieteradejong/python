@@ -1,15 +1,15 @@
-Files: similarity.py, logicgates.py and fraction.py
+*Similarity*: 
+- implementation of several similarity metrics, including:
+-- Euclidian, Manhattan, Minkowski, Cosine, Jaccard
+- Includes tests.
+- Todo: Mahalanobis distance, Kullback Leibler Distance, Mutual Information
 
-Similarity: Python implementation of several similarity metrics, including:
-Euclidian, Manhattan, Minkowski, Cosine, Jaccard and others.
-Includes tests.
+*LogicGates*: 
+- class implementation of logic gates
+- Includes tests.
 
-## Todo: Mahalanobis distance, Kullback Leibler Distance, Mutual Information
-
-LogicGates: Python object oriented implementation of a fundamental building block of computers: logic gates.
-Includes tests.
-
-Fraction: Fraction class with overloaded mathematical methods.
-Includes tests.
+*Fraction*: 
+- implements with overloaded mathematical methods. 
+- Includes tests.
 
 
