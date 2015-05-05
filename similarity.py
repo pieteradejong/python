@@ -32,25 +32,25 @@ class SimilarityMeasures():
   def main(self):
     print "Testing distance metrics...\n"
 
-    print "\nEuclidean distance:\n"
+    print "\nEuclidean distance:\n\n"
     print "Expect ", math.sqrt(5)," actual: " , self.euclidian((0,0), (1,2))
     print "Expect ", math.sqrt(25+11*11)," actual: " , self.euclidian((-2,-5), (3,6))
 
-    print "\nManhattan distance:\n"
+    print "\nManhattan distance:\n\n"
     print "Expect 16.0, actual: ", self.manhattan((1,2), (10, -5))
     print "Expect 32.0, actual: ", self.manhattan((10, 18), (2, -6))
 
-    print "\nMinkowski distance:\n"
+    print "\nMinkowski distance:\n\n"
     print "Expect: ", math.sqrt(25+11*11), " actual: ", self.minkowski( (-2,-5), (3,6), 2 ) #Euclidan
     print "Expect: ", self.manhattan((10,18), (2,-6)), " actual: ", self.minkowski( (10,18), (2,-6), 1 ) #Euclidan
     print "Expect ~12.749", self.minkowski((1,2), (10, -5), 1.5) #manual calc
     print "Expect ~24.175", self.minkowski((10, 15), (2, -6), 1.5) #manual calc
 
-    print "\ncosine distance:\n"
+    print "\ncosine distance:\n\n"
     print "Expect 0.0", self.cosine((1,2), (10, -5)) #manual calc
     print "Expect ~-0.676", self.cosine((10, 18), (2, -6))
 
-    print "\njaccard distance:\n"
+    print "\njaccard distance:\n\n"
     print "Expect ~.333", self.jaccard(['a', 'b', 'c'], ['a'])
     print "Expect =.5", self.jaccard(['frodo', 'bilbo', 'gandalf'], ['gollum', 'elrond', 'frodo', 'samwise', 'bilbo', 'gandalf'])
     print "Expect 0.0", self.jaccard(['a', 'b', 'c'], ['d', 'e', 'f'])
