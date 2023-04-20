@@ -1,3 +1,5 @@
+# Python Snippets / Tests
+
 *Similarity*: 
 - implementation of several similarity metrics, including:
 -- Euclidian, Manhattan, Minkowski, Cosine, Jaccard
