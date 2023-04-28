@@ -1,4 +1,5 @@
 import os
+from subprocess import check_output
 
 class bcolors:
     HEADER = '\033[95m'
@@ -31,7 +32,6 @@ class Pyfunctions:
 		print(*path_str.split(":"), sep="\n")
 
 	def get_lines_for_file(self, filename):
-		from subprocess import check_output
 		lines, words, chars = map(int, check_output(["wc", filename]).split()[:3])
 		return (lines, words, chars)
 
@@ -43,4 +43,3 @@ def main():
 
 if __name__ == "__main__":
 	main()
-
