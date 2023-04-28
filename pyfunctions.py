@@ -30,10 +30,16 @@ class Pyfunctions:
 		
 		print(*path_str.split(":"), sep="\n")
 
+	def get_lines_for_file(self, filename):
+		from subprocess import check_output
+		lines, words, chars = map(int, check_output(["wc", filename]).split()[:3])
+		return (lines, words, chars)
+
 
 def main():
 	pf = Pyfunctions()
 	pf.print_sys_path()
+	print(pf.get_lines_for_file(os.path.basename(__file__)))
 
 if __name__ == "__main__":
 	main()
