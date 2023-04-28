@@ -16,4 +16,3 @@ def main() -> None:
     print(f"Reactangle area is {args.width} * {args.length} = {area}")
 
 main()
-
