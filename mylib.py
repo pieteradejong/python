@@ -1,3 +1,6 @@
+from functools import wraps
+from time import time
+
 class bcolors:
     HEADER = '\033[95m'
     OKBLUE = '\033[94m'
@@ -8,3 +11,13 @@ class bcolors:
     ENDC = '\033[0m'
     BOLD = '\033[1m'
     UNDERLINE = '\033[4m'
+
+def time_function(func):
+    @wraps(func)
+    def wrapper(*args, **kwargs):
+        print(f"START timing function: {func.__name__}()")
+        start = time()
+        func(*args, **kwargs)
+        end = time()
+        print(f"END timing function: {func.__name__}() - execution time {str(end-start)}")
+    return wrapper
