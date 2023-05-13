@@ -21,3 +21,15 @@ def time_function(func):
         end = time()
         print(f"END timing function: {func.__name__}() - execution time {str(end-start)}")
     return wrapper
+
+@time_function
+def test_timer(num):
+    return sum(list(range(num)))
+
+def main():
+    # test_timer(1_000_000)
+    pass
+
+if __name__ == "__main__":
+    main()
+
