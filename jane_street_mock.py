@@ -19,14 +19,17 @@ example queries:
 input: 
     facts as (string, float, string)
     query as (float, string, string)
+
+TODO: 
+- enable chaining of units, e.g. m -> ft -> in
+- approach: each set of related units can be represented by a connected graph, 
+and the set of all units as a union of those disjointed graph.
+- algorithm: graph search starting at the first unit given, target the second unit.
+
 """
-import pprint
 from typing import List, Tuple, Dict
 
 class Solution:
-    # parse facts into lookup table, normalized by first unit: e.g. 1 m = 3.28 ft
-    # query: will read first unit (second string), lookup quantity for second unit, mulptiply by query float 
-    # TODO: recurse until nothing found
     NOT_CONVERTIBLE_STRING = "not convertible!"
 
     def parse_facts(self, facts: List[Tuple[str, float, str]]) -> None:
@@ -37,20 +40,18 @@ class Solution:
                 self.facts[unit_from] = dict()
             self.facts[unit_from][unit_to] = quantity
         
-    def get_facts(self) -> Dict[str, Dict[str, float]]:
-        return self.facts
-
     def parse_query(self, queries: List[Tuple[float, str, float]]) -> None:
         for _q in queries:
             quantity_from, unit_from, unit_to = _q[0], _q[1], _q[2]
             if unit_from not in self.facts:
-                print(Solution.NOT_CONVERTIBLE_STRING)
+                # print(Solution.NOT_CONVERTIBLE_STRING)
+                print("unit_from not in facts")
                 continue
             if unit_to not in self.facts[unit_from]:
-                print(Solution.NOT_CONVERTIBLE_STRING)
+                # print(Solution.NOT_CONVERTIBLE_STRING)
+                print("unit_to not in facts[unit_from]")
                 continue
             print(str(self.facts[unit_from][unit_to] * quantity_from))
-
 
 def main():
     s = Solution()
@@ -67,12 +68,7 @@ def main():
     ]
 
     s.parse_facts(facts)
-    parsed = s.get_facts()
-    print(parsed)
     s.parse_query(queries)
-
-
-
 
 if __name__ == "__main__":
     main()    
