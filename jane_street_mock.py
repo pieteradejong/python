@@ -40,6 +40,10 @@ class Solution:
                 self.facts[unit_from] = dict()
             self.facts[unit_from][unit_to] = quantity
         
+    
+    def parse_facts_to_graph(self, facts: List[Tuple[str, float, str]]) -> List[list[float]]:
+        pass
+    
     def parse_query(self, queries: List[Tuple[float, str, float]]) -> None:
         for _q in queries:
             quantity_from, unit_from, unit_to = _q[0], _q[1], _q[2]
