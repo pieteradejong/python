@@ -7,6 +7,10 @@ Learning objectives:
 - familiarity with Python multimedia modules
 - usage of audio formats and algorithms
 - create a great visualization with pyplot.
+
+Dev notes:
+- ensure actual audio file and data stay private. Source repo should 
+only include algorithm and ability to "plug-in" audio file.
 """
 
 # step 1: read sample audio file
