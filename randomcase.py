@@ -1,15 +1,17 @@
+from random import random
+
 """
 - option first letter of each word capitalized
-- parameter x in [0,1] is pribability capitalized
+- parameter x in [0,1] is probability capitalized
 - 
 """
 
-def random_case(s):
+def randomize_case(strToRandomize):
     res = []
-    for i, c in enumerate(s):
-        _ = c.upper() if i % 2 != 0 else c.lower()
-        res.append(_)
+    for _, char in enumerate(strToRandomize):
+        replChar = char if random() > .5 else char.swapcase()
+        res.append(replChar)
     return ''.join(res)
 
-print(random_case('myRanDOMcasE'))
+print(randomize_case('myrandomcase'))
 
