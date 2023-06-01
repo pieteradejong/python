@@ -6,7 +6,7 @@ from random import random
 - 
 """
 
-def randomize_case(strToRandomize):
+def randomize_case(strToRandomize: str=None) -> str:
     res = []
     for _, char in enumerate(strToRandomize):
         replChar = char if random() > .5 else char.swapcase()
@@ -14,4 +14,5 @@ def randomize_case(strToRandomize):
     return ''.join(res)
 
 print(randomize_case('myrandomcase'))
+
 
